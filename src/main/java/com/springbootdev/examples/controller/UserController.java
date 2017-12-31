@@ -16,7 +16,6 @@ public class UserController {
 
 
     @PostMapping("/users")
-    @ResponseBody
     public User create(@RequestBody User user)
     {
         return userRepository.save(user);
@@ -24,7 +23,6 @@ public class UserController {
 
 
     @GetMapping("/users")
-    @ResponseBody
     public List<User> findAll()
     {
         return userRepository.findAll();
@@ -32,7 +30,6 @@ public class UserController {
 
 
     @PutMapping("/users/{user_id}")
-    @ResponseBody
     public User update(@PathVariable("user_id") Long userId, @RequestBody User userObject)
     {
         User user = userRepository.findOne(userId);
@@ -44,7 +41,6 @@ public class UserController {
 
 
     @DeleteMapping("/users/{user_id}")
-    @ResponseBody
     public List<User> delete(@PathVariable("user_id") Long userId)
     {
         userRepository.delete(userId);
